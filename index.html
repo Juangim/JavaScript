@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <h1>Introduccion a JS</h1>
+    <button onclick="suma()">Sumar</button>
+    <button onclick="login()">Login</button>
+    <button onclick="CompruebaPar()">Es par o impar</button>
+    <button onclick="CompruebaEdad()">Mayor de edad</button>
+    <button onclick="media()">Media de 3 numeros</button>
+    <button onclick="areaTriangulo()">Area triangulo</button>
+
+    <script>
+        function suma(){
+            alert("Bienvenido a mi página");
+            let n1 = prompt("Dime un numero");
+            if(isNaN(n1)){
+                alert("No es un numero");
+            }
+            let n2 = prompt("Dime otro numero");
+            if(isNaN(n2)){
+                alert("No es un numero");
+            }
+
+            let suma = Number (n1) + Number (n2);
+            alert("la suma de " +n1+ " + " +n2+ " es: " +suma);
+        }
+
+        function login(){
+            let usuario = prompt("Introduzca un usuario");
+            let contrasena = prompt ("Introduzca una contraseña");
+            if( usuario == "admin" && contrasena == 1234){
+                alert ("Bienvenido a mi pagina")
+            }
+            else{
+                alert ("Acceso denegado")
+            }
+        }
+
+        function ParOimpar(n){
+            if(n % 2 == 0){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        function CompruebaPar(){
+            let numero = prompt("Dime un numero")
+            if (isNaN(numero)){
+                alert ("Error, introduce un numero")
+                return
+            }
+            if(ParOimpar(numero)){
+                alert("Par")
+            }
+            else{
+                alert("Impar")
+            }
+        }
+        function mayorEdad(edad){
+            if(edad >= 18){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        function CompruebaEdad(){
+            let numero = prompt("Dime tu edad")
+            if (isNaN(numero)){
+                alert ("Error, introduce tu edad")
+                return
+            }
+            if(mayorEdad(numero)){
+                alert("Eres mayor, Bienvenido a mi pagina")
+            }
+            else{
+                alert("Eres menor, a tu casa")
+            }
+        }
+        
+        function media(){
+            let n1=prompt("Dime un numero");
+            if (isNaN(n1)){
+                alert("No es un numero");
+                return;
+            }
+            let n2=prompt("Dime otro");
+            if (isNaN(n2)){
+                alert("No es un numero");
+                return;
+            }
+            let n3=prompt("Dime el ultimo numero")
+            if (isNaN(n2)){
+                alert("No es un numero")
+                return
+
+            }
+            let media=(Number(n1)+Number(n2)+Number(n3))/3;
+            alert("La media es " +media );
+        }
+
+        function areaTriangulo(){
+            let b = Number(prompt("Dime la base del triangulo"));
+            let a = Number(prompt("Dime la altula del triangulo"));
+            let resultadoArea = calculaAreaTriangulo(b,a)
+            
+
+        }
+        //calculaAreaTriangulo
+        function calculaAreaTriangulo(b,a){
+            let area = (b*a)/2;
+            alert("El area es: "+area)
+
+        }
+    </script>
+</body>
+</html>
