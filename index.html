@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
+    <style>
+        #display{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
     <h1>Introduccion a JS</h1>
@@ -13,6 +18,12 @@
     <button onclick="CompruebaEdad()">Mayor de edad</button>
     <button onclick="media()">Media de 3 numeros</button>
     <button onclick="areaTriangulo()">Area triangulo</button>
+    
+    <h2>Calculo del IVA de un producto</h2>
+    Precio sin IVA <input type="number" value="100" id="precio-sin-iva">
+    Tipo <input type="number" value="3" min="1" max="3" id="tipo">
+    <button onclick="calculaPrecioConIVAFormulario()">Precio IVA</button>
+    <p id="display"></p>
 
     <script>
         function suma(){
@@ -117,6 +128,53 @@
             let area = (b*a)/2;
             alert("El area es: "+area)
 
+        }
+
+        //Ejercicio del IVA
+        /*
+        Tipo 1 = 5%
+        Tipo 2 = 10%
+        Tipo 3 = 21%
+        */
+        function calcularPrecioConIVA(){
+            let precio = prompt ("Dime el precio sin IVA: ")
+            let tipo = prompt ("Dime el tipo de iVA (1, 2 o 3): ")
+            let precioIVA = precioConIVA(precio, tipo)
+            alert ("Precio con IVA " +precioIVA)
+            if(pagarEfectivo(precioIVA)){
+                alert("Se puede pagar en efectivo")
+            }
+            else{
+                alert("NO se puede pagar en efectivo")
+            }
+        }
+        function precioConIVA(precioSinIva, tipo){
+            if (tipo == 1){
+                return precioSinIva*1.05;
+            }
+            if(tipo == 2){
+                return precioSinIva*1.10;
+            }
+            if(tipo == 3){
+                return precioSinIva*1.21;
+            }
+        }
+        function pagarEfectivo(cantidad){
+            if(cantidad < 2000){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+
+        function calculaPrecioConIVAFormulario(){
+            let precioSinIva = document.getElementById("precio-sin-iva")
+            let precioSinIvaValor = precioSinIva.value
+            let tipoValor = document.getElementById("tipo").value
+            let precioIVA = precioConIVA(precioSinIvaValor, tipoValor)
+            let display = document.getElementById("display")
+            display.innerHTML = "El precio con IVA es: " +precioIVA
         }
     </script>
 </body>
