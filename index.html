@@ -8,6 +8,9 @@
         #display{
             border: 2px solid red;
         }
+        #display1{
+            border: 2px solid red;
+        }
     </style>
 </head>
 <body>
@@ -24,6 +27,20 @@
     Tipo <input type="number" value="3" min="1" max="3" id="tipo">
     <button onclick="calculaPrecioConIVAFormulario()">Precio IVA</button>
     <p id="display"></p>
+
+
+    <h2>Calculo de la posicion de un objeto (x) con MRUA</h2>
+    <button onclick="calcularPosicion()">Calcular MRUA</button>
+
+    <h2>Calculo de la posicion de un objeto (x) con MRUA con formulario</h2>
+    <label for="aceleracion">Aceleracion</label>
+    <input type="number" id="aceleracion">
+
+    <label for="tiempo">Tiempo</label>
+    <input type="number" id="tiempo">
+
+    <button onclick="calculaposicionFormulario()">Calcular MRUA</button>
+    <div id="display1"></div>
 
     <script>
         function suma(){
@@ -175,6 +192,27 @@
             let precioIVA = precioConIVA(precioSinIvaValor, tipoValor)
             let display = document.getElementById("display")
             display.innerHTML = "El precio con IVA es: " +precioIVA
+        }
+
+        /*Ejercicio mru*/
+
+        function calcularPosicionMRUA(a, t){
+            posicion = a*(Math.pow(t, 2))/2
+            return posicion
+        }
+        function calcularPosicion(){
+            let aceleracion = prompt ("Dime la aceleracion")
+            let tiempo = prompt ("Dime el tiempo")
+            let posicion = calcularPosicionMRUA(aceleracion, tiempo)
+            
+        }
+
+        function calculaposicionFormulario(){
+            let aceleracion = document.getElementById("aceleracion").value
+            let tiempo = document.getElementById("tiempo").value
+            let posicion = calcularPosicionMRUA(aceleracion, tiempo)
+            let display1 = document.getElementById("display1")
+            display1.innerHTML = "La posicion x es: " +posicion+" metros"
         }
     </script>
 </body>
