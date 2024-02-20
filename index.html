@@ -42,6 +42,14 @@
     <button onclick="calculaposicionFormulario()">Calcular MRUA</button>
     <div id="display1"></div>
 
+    <h2>Ejercicio 9.1.2</h2>
+    <button onclick="calificacionNota()">Clasificación de tu nota</button>
+
+    <h2>Ejercicio 9.1.3</h2>
+    <button onclick="TresNumeros()">3 Numeros</button>
+
+    <h2>Ejercicio 9.1.4</h2>
+    <button onclick="PromediodeTresNotas()">Promedio</button>
     <script>
         function suma(){
             alert("Bienvenido a mi página");
@@ -204,6 +212,7 @@
             let aceleracion = prompt ("Dime la aceleracion")
             let tiempo = prompt ("Dime el tiempo")
             let posicion = calcularPosicionMRUA(aceleracion, tiempo)
+            alert("La posicion x es: " +posicion+" metros")
             
         }
 
@@ -214,6 +223,103 @@
             let display1 = document.getElementById("display1")
             display1.innerHTML = "La posicion x es: " +posicion+" metros"
         }
+
+        /*EJERCICIOS 9*/
+
+        /**EJERCICIO 9.1.2**/
+        
+        /***************************************************
+         *  Confeccionar un programa que pida una nota (número). Muestra y la calificación según la nota:
+         *   0-3: Muy deficiente
+         *   3-5: Insuficiente
+         *   5-6: Suficiente
+         *   6-7: Bien
+         *   7-9: Notable
+         *   9-10: Sobresaliente 
+         * 
+         * ************************/
+
+        function calificacionNota(){
+            let n = Number(prompt ("Dime tu nota: "))
+            
+            if(isNaN(n)){
+                alert ("No es un numero")
+            }
+            if(n >= 0 && n < 3){
+                alert("Muy deficiente")
+            }
+
+            if(n >= 3 && n < 5){
+                alert("Insuficiente")
+            }
+
+            if(n >= 5 && n < 6){
+                alert("Suficiente")
+            }
+
+            if(n >= 6 && n < 7){
+                alert("Bien")
+            }
+
+            if(n >= 7 && n < 9){
+                alert("Notable")
+            }
+
+            if(n >= 9 && n <= 10){
+                alert("Sobresaliente")
+            }
+        }
+
+        /**EJERCICIO 9.1.3**/
+        
+        /*
+        
+        Se ingresan por teclado tres números, si al menos uno de los valores ingresados es menores a 10,
+        imprimir en la página la leyenda 'Alguno de los números es menor a diez'.
+
+        */
+
+        function TresNumeros(){
+            let n1 = prompt  ("Dime un numero: ")
+            let n2 = prompt  ("Dime otro numero: ")
+            let n3 = prompt  ("Dime el ultimo numero: ")
+
+            if(n1 < 10 && n2 < 10 && n3 < 10){
+                alert("Alguno de los números es menor a diez")
+            }
+            else{
+                alert ("alguno numero es mayor que 10")
+            }
+        }
+
+        /**EJERCICIO 9.1.4**/
+
+        /*
+        
+            Se ingresan tres notas de un alumno, si el promedio es mayor o igual a 5 mostrar el mensaje
+            'Promocionado'. En caso contrario ‘No promociona’. Tener en cuenta que para obtener el
+            promedio debemos operar suma=nota1+nota2+nota3; y luego hacer promedio=suma/3;
+
+            Cuando cargamos una nota y queremos convertir inmediatamente el valor ingresado a entero
+            podemos hacer:
+            nota1=prompt('Ingrese primer nota:' );
+            nota1=Number(nota1);
+
+        */
+
+        function PromediodeTresNotas(){
+            let n1 = prompt("Introduce la primera nota: ")
+            let n2 = prompt("Introduce la segunda nota: ")
+            let n3 = prompt("Introduce la tercera nota: ")
+            
+            if(suma >= 5){
+                alert("Promociona")
+            }
+            else{
+                alert("No promociona")
+            }
+            }
+        
     </script>
 </body>
 </html>
