@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    #display{
+            width: 40%;
+            border: 3px solid blue;
+            border-radius: 10px;
+            height: 100px;
+            margin: auto;
+            overflow: auto;
+        }
+
+        #display1{
+            width: 40%;
+            border: 3px solid blue;
+            border-radius: 10px;
+            height: 100px;
+            margin: auto;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titulo">Arrays</h1>
+    <button onclick="diceAlineacion()">Alineación</button>
+    <button onclick="imprimeAlineacion()">Imprime Alineacion</button>
+    <button onclick="cambiaImagen()">Cambia imagen</button>
+    <img id="imagen" src="" alt="" width="100%" height="100%">
+    <div id="display"></div>
+
+
+    <!--EJERCICIOS TABLA MULTIPLICAR-->
+    <h2>Tabla Multiplicar</h2>
+    Numero <input type="number" value="1" id="numero1" max="10" min="1">
+    <button onclick="tablaMulti ()">Tabla Multiplicar</button>
+    <div id="display1"></div>
+    
+
+    <script>
+                    //arrays
+            function cambiaImagen(){
+            let imagen = document.getElementById("imagen")
+            imagen.src = "img1.jpg"
+        }
+
+        let aliniacion = ["Cistian", "Javier", "Carlos", "Pablo", "Manuel"]
+        function diceAlineacion(){
+            
+            aliniacion.push("Juan")
+            aliniacion.push("Diego")//Este es añadir por la derecha 
+            aliniacion.unshift("Sanchez")// Y este añade por la izquierdasç
+            alert("Hay " +aliniacion.length+ " Jugadores")
+            let posicion = prompt("Dime posicion")
+            if(posicion >= aliniacion.length){
+                alert("No hay tantos jugadores")
+            }
+            else{
+                alert("En la posicion " +posicion+ " Juega " +aliniacion[posicion])
+            }
+        }
+
+        function imprimeAlineacion(){
+            let display = document.getElementById("display")
+            display.innerHTML = "<ol>"
+            for(let i=0; i < aliniacion.length; i++){
+                display.innerHTML = display.innerHTML + "<li>" + aliniacion[i] + "</li>"
+            }
+            display.innerHTML = display.innerHTML + "</ol>"
+            display.style.backgroundColor = "yellow"
+            display.style.width = "30%"
+            document.getElementById("titulo").style.fontSize = "4em"
+        }
+        //Ejercicio tabla del 8
+        function tablaMulti(){
+            let n = document.getElementById("numero1").value;
+            let display1 = document.getElementById("display1");
+            display1.innerHTML = ''; // Limpiar contenido anterior
+            for(let i = 1; i <= 10; i++){
+                display1.innerHTML += "<li>" + n + " x " + i + " = " + (n*i) + "</li>";
+            }
+        }
+
+    </script>
+</body>
+</html>
